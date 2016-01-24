@@ -1,2 +1,2 @@
-# getPath
-Applescript for getting the path of a selected file or folder
+# Applescripts
+Just some applescript files that have helped speed up my workflow
