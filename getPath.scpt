@@ -1,3 +1,5 @@
+-- Get the file path of a selected file or folder
+
 tell application "Finder"
 	set finderSelList to selection as alias list
 	
@@ -11,3 +13,6 @@ tell application "Finder"
 	end if
 	
 end tell
+
+-- uncomment line below to copy the path to the clipboard
+-- set the clipboard to filePath
