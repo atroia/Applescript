@@ -1,6 +1,9 @@
 # Applescripts
 Just some applescript files that have helped speed up my workflow
 
+**createAssignmentsFromList.scpt**
+
+Script to create InCopy Assignments in InDesign from a list in a text file.
 
 **getPath.scpt**
 
