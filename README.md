@@ -14,8 +14,10 @@ Simple script to find the POSIX file path of a selected file. I use this with so
 
 
 **Mount Drive and Search**
+
 This script will first search for the specific mounted network drive. If the network drive is not mounted, it will mount the drive and search prompt (Alfred) will appear. If the network drive is mounted, the search prompt (Alfred) will appear.
 
 
 **Mount Drive and Search 2**
+
 This script will first search for the specific mounted network drive. If the network drive is not mounted, it will mount the drive and the search prompt (Alfred) will appear. If the network drive is mounted, the search prompt (Alfred) will appear. This script will also make a list of the folders in the parent folder of the drive and list them in a window prompt. Once the folder has been selected from the list the search prompt (Alfred) will appear and you can search that folder from Alfred.
