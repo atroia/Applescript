@@ -21,3 +21,8 @@ This script will first search for the specific mounted network drive. If the net
 **Mount Drive and Search 2**
 
 This script will first search for the specific mounted network drive. If the network drive is not mounted, it will mount the drive and the search prompt (Alfred) will appear. If the network drive is mounted, the search prompt (Alfred) will appear. This script will also make a list of the folders in the parent folder of the drive and list them in a window prompt. Once the folder has been selected from the list the search prompt (Alfred) will appear and you can search that folder from Alfred.
+
+
+**Check Digit Check**
+
+ISBN-13 Check Digit Check. Enter your 12 ISBN digits and you will get your check digit back.
