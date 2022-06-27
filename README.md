@@ -30,3 +30,7 @@ ISBN-13 Check Digit Check. Enter your 12 ISBN digits and you will get your check
 **Create Folder Structure**
 
 Create "Body" and "Cover" folders in parent folder.
+
+**Change Extension**
+
+Change all the extensions of files of one file type to another. Currently default set to change HTML file extensions to PHP.
