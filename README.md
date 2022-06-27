@@ -34,3 +34,11 @@ Create "Body" and "Cover" folders in parent folder.
 **Change Extension**
 
 Change all the extensions of files of one file type to another. Currently default set to change HTML file extensions to PHP.
+
+**Create Job Folders**
+
+This script will create an Ebook working folder structure within a parent folder. Folders are "~finals", "~src", "EPUB2", "EPUB3", and "KF8".
+
+**Hard Cover Dimensions**
+
+This script will help with the math in determining the max width of a hard cover book file.
