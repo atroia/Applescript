@@ -25,6 +25,13 @@ tell application "Finder"
 		activate
 		do shell script "ls /Volumes/" & mountedDiskName
 		get paragraphs of result
+		
+		-- remove DfsrPrivate folder
+		set folderList to result
+		rest of folderList
+		set newFolderList to items 2 thru -1 of folderList
+		
+		-- display list of folders
 		set volumeSearch to choose from list (result) with prompt "Choose a Volume folder to search:" OK button name "Search"
 		if result is false then
 			display dialog "This is not the drive you are looking for."
@@ -35,6 +42,13 @@ tell application "Finder"
 		activate
 		do shell script "ls /Volumes/" & mountedDiskName
 		get paragraphs of result
+		
+		-- remove DfsrPrivate folder
+		set folderList to result
+		rest of folderList
+		set newFolderList to items 2 thru -1 of folderList
+		
+		-- display list of folders
 		set volumeSearch to choose from list (result) with prompt "Choose a Volume folder to search:" OK button name "Search"
 		if result is false then
 			display dialog "This is not the drive you are looking for."
