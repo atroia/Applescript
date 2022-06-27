@@ -26,3 +26,7 @@ This script will first search for the specific mounted network drive. If the net
 **Check Digit Check**
 
 ISBN-13 Check Digit Check. Enter your 12 ISBN digits and you will get your check digit back.
+
+**Create Folder Structure**
+
+Create "Body" and "Cover" folders in parent folder.
