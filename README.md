@@ -51,3 +51,8 @@ This script will help with the math in determining the max width of a hard cover
 **mapTradebooksDrive**
 
 Sometimes our network can be frustrating to find things on. So I have started mapping each drive to separate text files to search via GREP within Sublime for a easier and more expansive search (as I am basically search all the level 1 folders on all the drives at the same time). This script will help update the one Volume that will update the most frequently as new folders are added.
+
+****
+**PDF Page Count**
+
+I needed a script for Adobe Acrobat that I could tie to a keyboard shortcut would checkthe page count against 16 page signatures for publishing purposes.
