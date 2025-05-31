@@ -37,6 +37,10 @@ Change all the extensions of files of one file type to another. Currently defaul
 This script will create an Ebook working folder structure within a parent folder. Folders are "~finals", "~src", "EPUB2", "EPUB3", and "KF8".
 
 ****
+**ejectCard**
+This script allows you to eject a specific drive by name, in this case I used my cameras SD card. Be sure to put your card name's mounted name in the script before using.
+
+****
 **Hard_Cover_Dimensions**
 
 This script will help with the math in determining the max width of a hard cover book file.
