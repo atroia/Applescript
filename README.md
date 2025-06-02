@@ -38,6 +38,7 @@ This script will create an Ebook working folder structure within a parent folder
 
 ****
 **ejectCard**
+
 This script allows you to eject a specific drive by name, in this case I used my cameras SD card. Be sure to put your card name's mounted name in the script before using.
 
 ****
