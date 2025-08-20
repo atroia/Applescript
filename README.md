@@ -3,6 +3,7 @@ Just some applescript files that have helped speed up my workflow
 
 ****
 **MyLibrary**
+
 My custom Script Library file.
 
 ****
