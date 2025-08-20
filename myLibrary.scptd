@@ -1,0 +1,191 @@
+on email_address(fname, lname)
+	set mail_address to (fname & "." & lname & "@pacificpress.com")
+	return mail_address
+end email_address
+
+on getPath(x)
+	tell application "Finder"
+		set finderSelList to selection as alias list
+		if finderSelList ≠ {} then
+			repeat with i in finderSelList
+				set contents of i to POSIX path of (contents of i)
+			end repeat
+			set AppleScript's text item delimiters to linefeed
+			set filePath to finderSelList as text
+		end if
+	end tell
+end getPath
+
+on theSplit(theString, theDelimiter)
+	-- save delimiters to restore old settings
+	set oldDelimiters to AppleScript's text item delimiters
+	-- set delimiters to delimiter to be used
+	set AppleScript's text item delimiters to theDelimiter
+	-- create the array
+	set theArray to every text item of theString
+	-- restore the old setting
+	set AppleScript's text item delimiters to oldDelimiters
+	-- return the result
+	return theArray
+end theSplit
+
+on Num_to_month(x)
+	try
+		if x is "01" then
+			set my_month to "January "
+		else if x is "02" then
+			set my_month to "February "
+		else if x is "03" then
+			set my_month to "March "
+		else if x is "04" then
+			set my_month to "April "
+		else if x is "05" then
+			set my_month to "May "
+		else if x is "06" then
+			set my_month to "June "
+		else if x is "07" then
+			set my_month to "July "
+		else if x is "08" then
+			set my_month to "August "
+		else if x is "09" then
+			set my_month to "September "
+		else if x is "10" then
+			set my_month to "October "
+		else if x is "11" then
+			set my_month to "November "
+		else if x is "12" then
+			set my_month to "December "
+		else
+			display alert "There is something wrong with your URL."
+		end if
+	end try
+end Num_to_month
+
+on month_to_Num(x)
+	try
+		if (x is "January" or x is "Jan") then
+			set my_month to "01"
+		else if (x is "February" or x is "Feb") then
+			set my_month to "02"
+		else if (x is "March" or x is "Mar") then
+			set my_month to "03"
+		else if (x is "April" or x is "Apr") then
+			set my_month to "04"
+		else if x is "May" then
+			set my_month to "05"
+		else if (x is "June" or x is "Jun") then
+			set my_month to "06"
+		else if (x is "July" or x is "Jul") then
+			set my_month to "07"
+		else if (x is "August" or x is "Aug") then
+			set my_month to "08"
+		else if (x is "September" or x is "Sept" or x is "Sep") then
+			set my_month to "09"
+		else if (x is "October" or x is "Oct") then
+			set my_month to "10"
+		else if (x is "November" or x is "Nov") then
+			set my_month to "11"
+		else if (x is "December" or x is "Dec") then
+			set my_month to "12"
+		else
+			display alert "There is something wrong with your URL."
+		end if
+	end try
+	return my_month
+end month_to_Num
+
+on sigCheck(page, sig)
+	set addPages to ((round (page) / sig) * sig) - page
+	set removePages to page - (((round (page) / sig) - 1) * sig)
+	set perfectBreak to "" & page & " pages. You're good."
+	set unperfectBreak to "Your page count " & page & " is not an even signature break. Try adding " & addPages & " pages, or removing " & removePages & " pages."
+	if page mod sig is not 0 then
+		return unperfectBreak
+	end if
+end sigCheck
+
+
+on round_truncate(this_number, decimal_places)
+	if decimal_places is 0 then
+		set this_number to this_number + 0.5
+		return number_to_text(this_number div 1)
+	end if
+	
+	set the rounding_value to "5"
+	repeat decimal_places times
+		set the rounding_value to "0" & the rounding_value
+	end repeat
+	set the rounding_value to ("." & the rounding_value) as number
+	
+	set this_number to this_number + rounding_value
+	9
+	set the mod_value to "1"
+	repeat decimal_places - 1 times
+		set the mod_value to "0" & the mod_value
+	end repeat
+	set the mod_value to ("." & the mod_value) as number
+	
+	set second_part to (this_number mod 1) div the mod_value
+	if the length of (the second_part as text) is less than the decimal_places then
+		repeat decimal_places - (the length of (the second_part as text)) times
+			set second_part to ("0" & second_part) as string
+		end repeat
+	end if
+	
+	set first_part to this_number div 1
+	set first_part to number_to_text(first_part)
+	set this_number to (first_part & "." & second_part)
+	
+	return this_number
+end round_truncate
+
+on number_to_text(this_number)
+	set this_number to this_number as string
+	if this_number contains "E+" then
+		set x to the offset of "." in this_number
+		set y to the offset of "+" in this_number
+		set z to the offset of "E" in this_number
+		set the decimal_adjust to characters (y - (length of this_number)) thru ¬
+			-1 of this_number as string as number
+		if x is not 0 then
+			set the first_part to characters 1 thru (x - 1) of this_number as string
+		else
+			set the first_part to ""
+		end if
+		set the second_part to characters (x + 1) thru (z - 1) of this_number as string
+		set the converted_number to the first_part
+		repeat with i from 1 to the decimal_adjust
+			try
+				set the converted_number to ¬
+					the converted_number & character i of the second_part
+			on error
+				set the converted_number to the converted_number & "0"
+			end try
+		end repeat
+		return the converted_number
+	else
+		return this_number
+	end if
+end number_to_text
+
+on displayError()
+	display dialog "The script encountered a problem."
+end displayError
+
+on selectedFile()
+	try
+		set theSelection to {}
+		tell application "Finder"
+			repeat with i in (get selection)
+				set end of theSelection to name of i
+			end repeat
+		end tell
+		set {TID, text item delimiters} to {text item delimiters, return}
+		--set the clipboard to theSelection as string
+		set text item delimiters to TID
+		return theSelection as string
+	on error
+		displayError()
+	end try
+end selectedFile
+
