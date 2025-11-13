@@ -1,6 +1,6 @@
 --Creator: Aaron Troia
 --Creation Date: 2/8/17
---Version: 0.1
+--Modified Date: 11/12/25
 
 (*
 I created this applescript because I can never remember the dimensions that are needed 
