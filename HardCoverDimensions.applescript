@@ -39,7 +39,10 @@ set widthTotal to boardTotal + fold + spineTotal
 set softWidth to (bwidth * 2) + swidth
 
 set dialogText to ("Dimensions 
+
 Softcover: " & softWidth & " x " & bheight & "
+
 Hardcover Without Bleed: " & widthTotal & " x " & heightTotal & "
+
 Hardcover With Bleed: " & widthTotal + bleed & " x " & heightTotal + bleed) as text
 display alert dialogText buttons {"Cancel", "Ok"}
